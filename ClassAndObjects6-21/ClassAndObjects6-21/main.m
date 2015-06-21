@@ -16,7 +16,6 @@
 
 //set up accumulator
 //- (void) setAccumulator: (float) value;
-//- (void) clear;
 //- (float) accumulator;
 
 
@@ -28,11 +27,17 @@
 - (void) multiply:(float)n;
 - (void) divide:(float)n;
 - (void) changeSign;
+- (void) reciprocal:(float)n;
+- (void) clear;
+- (void) setMemory:(float)n;
+- (void) recall:(float)n;
+
 
 @end
 
 @implementation Calculator {
     float currentValue;
+    float saved;
 }
 
 - (void) print{
@@ -41,26 +46,51 @@
 
 - (void) setCurrentValue:(float)n {
     currentValue = n;
+    saved = currentValue;
 }
 
 - (void) add:(float)n {
     currentValue += n;
+    saved = currentValue;
 }
 
 - (void) subtract:(float)n {
     currentValue -= n;
+    saved = currentValue;
 }
 
 - (void) multiply:(float)n {
     currentValue *= n;
+    saved = currentValue;
 }
 
 - (void) divide:(float)n {
     currentValue /= n;
+    saved = currentValue;
 }
 
 - (void) changeSign {
     currentValue *= -1;
+    saved = currentValue;
+}
+
+- (void) reciprocal {
+    currentValue = 1/currentValue;
+    saved = currentValue;
+}
+
+- (void) squared {
+    currentValue *= currentValue;
+    saved = currentValue;
+}
+
+- (void) clear{
+    currentValue *= 0;
+    saved = currentValue;
+}
+
+- (void) printSaved{
+    currentValue = saved;
 }
 
 @end
@@ -86,10 +116,18 @@ int main(int argc, const char * argv[]) {
         [myCalculator print];
         [myCalculator multiply:5];
         [myCalculator print];
-        [myCalculator changeSign];
+//        [myCalculator changeSign];
+//        [myCalculator print];
+//        [myCalculator reciprocal];
+//        [myCalculator print];
+//        [myCalculator squared];
+//        [myCalculator print];
+//        [myCalculator clear];
+//        [myCalculator print];
+        [myCalculator printSaved];
         [myCalculator print];
         
-    
+
     }
     return 0;
 }
