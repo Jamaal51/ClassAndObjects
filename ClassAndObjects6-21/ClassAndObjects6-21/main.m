@@ -25,14 +25,16 @@
 - (void) add:(float)n;
 - (void) subtract:(float)n;
 - (void) print;
-//- (void) multiply:(float)n;
-//- (void) divide:(float)n;
+- (void) multiply:(float)n;
+- (void) divide:(float)n;
+- (void) changeSign;
 
 @end
 
 @implementation Calculator {
     float currentValue;
 }
+
 - (void) print{
     NSLog(@"%f", currentValue);
 }
@@ -42,13 +44,23 @@
 }
 
 - (void) add:(float)n {
-    
     currentValue += n;
-    
 }
 
 - (void) subtract:(float)n {
     currentValue -= n;
+}
+
+- (void) multiply:(float)n {
+    currentValue *= n;
+}
+
+- (void) divide:(float)n {
+    currentValue /= n;
+}
+
+- (void) changeSign {
+    currentValue *= -1;
 }
 
 @end
@@ -70,9 +82,13 @@ int main(int argc, const char * argv[]) {
         [myCalculator print];
         [myCalculator subtract:2];
         [myCalculator print];
-         
+        [myCalculator divide:3];
+        [myCalculator print];
+        [myCalculator multiply:5];
+        [myCalculator print];
+        [myCalculator changeSign];
+        [myCalculator print];
         
-    
     
     }
     return 0;
