@@ -18,48 +18,38 @@
 //- (void) setAccumulator: (float) value;
 //- (void) clear;
 //- (float) accumulator;
-- (void) display;
 
-- (void) setNumberA: (float)a;
-- (void) setNumberB: (float)b;
 
 //arithmetic functions
-- (void) add;
-- (void) subtract;
-//- (void) multiply;
-//- (void) divide;
+- (void) setCurrentValue:(float)n;
+- (void) add:(float)n;
+- (void) subtract:(float)n;
+- (void) print;
+//- (void) multiply:(float)n;
+//- (void) divide:(float)n;
 
 @end
 
 @implementation Calculator {
-    float NumberA;
-    float NumberB;
+    float currentValue;
+}
+- (void) print{
+    NSLog(@"%f", currentValue);
 }
 
-- (void) setNumberA:(float)a {
-    NumberA = a;
-}
-- (void) setNumberB:(float)b {
-    NumberB = b;
+- (void) setCurrentValue:(float)n {
+    currentValue = n;
 }
 
-- (void) display {
-    NSString *yourNumbers = [NSString stringWithFormat: @"your numbers are: %g, %g", NumberA, NumberB];
-    NSLog(@"%@", yourNumbers);
+- (void) add:(float)n {
+    
+    currentValue += n;
+    
 }
 
-- (void) add {
-    NSLog(@"%g + %g = %g", NumberA, NumberB, NumberA + NumberB);
+- (void) subtract:(float)n {
+    currentValue -= n;
 }
-
-- (void) subtract {
-    NSLog(@"%g - %g = %g", NumberA, NumberB, NumberA - NumberB);
-}
-
-- (void) divide {
-    NSLog(@"%g / %g = %g", NumberA, NumberB, NumberA / NumberB);
-}
-
 
 @end
 
@@ -67,27 +57,20 @@
 int main(int argc, const char * argv[]) {
     @autoreleasepool {
         
-        float x;
-        printf("enter your first number: \n");
-        scanf("%g", &x);
-        
-        float y;
-        printf("enter your second number: \n");
-        scanf("%g", &y);
-        
+//        float x;
+//        printf("enter your first number: \n");
+//        scanf("%g", &x);
+
        
-        Calculator *f  = [[Calculator alloc] init];
+        Calculator *myCalculator  = [[Calculator alloc] init];
         
-        [f setNumberA: x];
-        [f setNumberB: y];
-        
-        [f display];
-        [f add];
-        [f subtract];
-        [f divide];
-        
-        
-        
+        [myCalculator setCurrentValue:0];
+        [myCalculator print];
+        [myCalculator add:5];
+        [myCalculator print];
+        [myCalculator subtract:2];
+        [myCalculator print];
+         
         
     
     
