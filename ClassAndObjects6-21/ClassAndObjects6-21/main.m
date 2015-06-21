@@ -25,7 +25,7 @@
 
 //arithmetic functions
 - (void) add;
-//- (void) subtract;
+- (void) subtract;
 //- (void) multiply;
 //- (void) divide;
 
@@ -52,6 +52,14 @@
     NSLog(@"%g + %g = %g", NumberA, NumberB, NumberA + NumberB);
 }
 
+- (void) subtract {
+    NSLog(@"%g - %g = %g", NumberA, NumberB, NumberA - NumberB);
+}
+
+- (void) divide {
+    NSLog(@"%g / %g = %g", NumberA, NumberB, NumberA / NumberB);
+}
+
 
 @end
 
@@ -59,13 +67,28 @@
 int main(int argc, const char * argv[]) {
     @autoreleasepool {
         
-        Calculator *add = [[Calculator alloc] init];
+        float x;
+        printf("enter your first number: \n");
+        scanf("%g", &x);
         
-        [add setNumberA: 5];
-        [add setNumberB: 3];
+        float y;
+        printf("enter your second number: \n");
+        scanf("%g", &y);
         
-        [add display];
-        [add add];
+       
+        Calculator *f  = [[Calculator alloc] init];
+        
+        [f setNumberA: x];
+        [f setNumberB: y];
+        
+        [f display];
+        [f add];
+        [f subtract];
+        [f divide];
+        
+        
+        
+        
     
     
     }
