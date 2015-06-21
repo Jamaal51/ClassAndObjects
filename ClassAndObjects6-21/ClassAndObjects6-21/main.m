@@ -27,10 +27,9 @@
 - (void) multiply:(float)n;
 - (void) divide:(float)n;
 - (void) changeSign;
-- (void) reciprocal:(float)n;
+- (void) reciprocal;
 - (void) clear;
-- (void) setMemory:(float)n;
-- (void) recall:(float)n;
+
 
 
 @end
