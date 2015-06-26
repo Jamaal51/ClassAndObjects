@@ -14,11 +14,6 @@
 
 @interface Calculator : NSObject
 
-//set up accumulator
-//- (void) setAccumulator: (float) value;
-//- (float) accumulator;
-
-
 //arithmetic functions
 - (void) setCurrentValue:(float)n;
 - (void) add:(float)n;
